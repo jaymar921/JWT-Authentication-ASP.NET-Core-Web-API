@@ -28,9 +28,8 @@ GET https://localhost:7079/Auth
 HEADER
 Authorization="Bearer eyJhbGciOiJIU....-TY_srNjWqhN"
 ```
-If the token is authorized to retrieve the resource in the server, it will return a response.
+If the token is authorized to retrieve the resource in the server, it will return a `json` response.
 ```json
-// RESPONSE BODY (json)
 [
     {
         "id": 1,
