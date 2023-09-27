@@ -30,7 +30,7 @@ Authorization="Bearer eyJhbGciOiJIU....-TY_srNjWqhN"
 ```
 If the token is authorized to retrieve the resource in the server, it will return a response.
 ```json
-RESPONSE BODY (json)
+// RESPONSE BODY (json)
 [
     {
         "id": 1,
