@@ -21,16 +21,22 @@ namespace JWT_Authentication_ASP.NET_Core_Web_API.Controllers
         [HttpPost("login")]
         public IActionResult Login(AuthRequest model)
         {
+            // Authenticate the user and get the response
             var response = authenticationService.Authenticate(model);
 
             if(response == null)
             {
-                return BadRequest(new { Message = "Username or Password is incorrect" });
+                // if user is not authenticated, return unauthorized
+                return Unauthorized(new { Message = "Username or Password is incorrect" });
             }
 
+            // success
             return Ok(response);
         }
 
+        // Retrieve All users
+        // But let's make sure that the user accessing this resource is authenticated
+        // so we have to place [Authorize] tag in the route to ensure that the user is authenticated
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet]
         public IActionResult GetAllUsers()
